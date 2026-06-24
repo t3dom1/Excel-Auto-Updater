@@ -24,34 +24,19 @@ The system eliminates manual file handling by providing a single access point fo
 
 ---
 
-## 3. System Architecture
-┌─────────────────────┐
-│ GitHub Repository │
-│ (Book.xlsx) │
-└──────────┬──────────┘
-│ HTTP GET (raw)
-▼
-┌─────────────────────┐
-│ download_file() │
-└──────────┬──────────┘
-│
-▼
-┌─────────────────────┐
-│ parse_excel() │
-│ - Sheet 1 │
-│ - Sheet 2 │
-│ - Sheet 3 │
-└──────────┬──────────┘
-│
-▼
-┌─────────────────────┐
-│ Consolidated Table │
-│ ID, Name, Amount, │
-│ Headcount │
-└──────────┬──────────┘
-│
-▼
-┌─────────────────────┐
-│ processed_data │
-│ .xlsx │
-└─────────────────────┘
+## 3. Data Flow
+
+| Step | Process | Description |
+|------|---------|-------------|
+| 1 | **Fetch** | Script sends HTTP GET request to the permanent GitHub raw URL. |
+| 2 | **Validate** | Response status is verified. File integrity is checked by size. |
+| 3 | **Load** | The binary content is saved to local storage as `Book.xlsx`. |
+| 4 | **Extract** | The script reads three worksheets: `Sheet 1`, `Sheet 2`, `Sheet 3`. |
+| 5 | **Parse** | From each sheet, data is extracted from rows 8, 12, 16, 20, 24. |
+| 6 | **Clean** | Currency symbols (`₽`) and spaces are removed; type conversion is applied. |
+| 7 | **Aggregate** | All records are combined into a single dataset with sequential indexing. |
+| 8 | **Export** | The final table is saved as `processed_data.xlsx`. |
+
+---
+
+
