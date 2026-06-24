@@ -21,7 +21,3 @@ The system eliminates manual file handling by providing a single access point fo
 | **Data Cleaning** | Removes currency symbols, whitespace, and normalises data types |
 | **Record Indexing** | Applies automatic sequential numbering to all entries |
 | **Result Export** | Outputs a well‑structured Excel workbook |
-
----
-
-## 3. System Architecture
