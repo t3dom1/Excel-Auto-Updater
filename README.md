@@ -77,8 +77,6 @@ The system eliminates manual file handling by providing a single access point fo
 | `Downloaded: 34594 bytes` | Shows file size |
 | `Sheets found: ['Sheet 1', 'Sheet 2', 'Sheet 3']` | Lists detected worksheets |
 | `CONSOLIDATED TABLE` | Displays the aggregated data |
-| `Saved: processed_data.xlsx` | Confirms successful export |
-| `Records processed: 15` | Reports total record count |
 
 ---
 
